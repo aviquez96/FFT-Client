@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowDropUpTwoToneIcon from '@material-ui/icons/ArrowDropUpTwoTone';
 import ArrowDropDownTwoToneIcon from '@material-ui/icons/ArrowDropDownTwoTone';
 
-const Activity = () => {
+const Activity = ({activity}) => {
     const classes = useStyles();
 
     return (
@@ -24,11 +24,11 @@ const Activity = () => {
                         <Card variant="outlined" className={classes.card}>
                             <CardContent className={classes.cardContent}>
                                 <Typography>
-                                    2
+                                    {activity.hours}
                                 </Typography>
                             </CardContent>
                         </Card>
-                        <IconButton color="primary" aria-label="add one hour" size="small">
+                        <IconButton color="primary" aria-label="subtract one hour" size="small">
                             <ArrowDropDownTwoToneIcon fontSize='large'/>
                         </IconButton>
                     </Grid>
@@ -36,7 +36,7 @@ const Activity = () => {
                         <Grid item xs container>
                             <Grid item xs>
                                 <Typography gutterBottom variant="subtitle1">
-                                    Skill Name
+                                    {activity.activity}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         maxWidth: 800,
-        spacing: theme.spacing(1)
+        // padding: theme.spacing(1),
     },
     card: {
         width: 65,
